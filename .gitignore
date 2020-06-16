@@ -2,5 +2,6 @@ __pycache__/
 .ipynb_checkpoints/
 *.pyc
 .idea/*
-
+tensorflow_datasets/
 .DS_Store
+downloads/
