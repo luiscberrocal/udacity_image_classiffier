@@ -5,3 +5,4 @@ __pycache__/
 tensorflow_datasets/
 .DS_Store
 downloads/
+/image_classifier_1.0.0.zip

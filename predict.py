@@ -40,9 +40,9 @@ if __name__ == '__main__':
     Options:
 
     --top_k : Return the top KK most likely classes:
-
+    
         $ python predict.py /path/to/image saved_model --top_k KK
-
+    
     --category_names : Path to a JSON file mapping labels to flower names:
         $ python predict.py /path/to/image saved_model --category_names map.json
 
@@ -56,7 +56,7 @@ if __name__ == '__main__':
     Basic usage:
 
         $ python predict.py ./test_images/orchid.jpg my_model.h5
-
+        
     Options:
 
     Return the top 3 most likely classes:
@@ -75,7 +75,7 @@ if __name__ == '__main__':
     labels_file = args['category_names']
     with open(labels_file, 'r') as json_file:
         class_names = json.load(json_file)
-
+        
     keras_model = tf.keras.models.load_model(args['model'], custom_objects={'KerasLayer': hub.KerasLayer})
     print(keras_model.summary())
     numpy_image = process_image(args['image'])
@@ -83,7 +83,7 @@ if __name__ == '__main__':
 
     i = 0
     for prob in probs:
-        class_num = str(classes[i] + 1)
-        print(prob, class_num, class_names[class_num])
+        class_num =  str(classes[i] + 1)
+        print('{:20} ({}): {:.2f}%' .format(class_names[class_num], class_num, prob *100 ))
         i += 1
-
+    
